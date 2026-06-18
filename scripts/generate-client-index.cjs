@@ -24,11 +24,12 @@ const html = `<!doctype html>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tinu Barber — Queue Management</title>
-    ${stylesCss ? `<link rel="stylesheet" href="./assets/${stylesCss}">` : ''}
+    <base href="/" />
+    ${stylesCss ? `<link rel="stylesheet" href="/assets/${stylesCss}">` : ''}
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./assets/${indexJs}"></script>
+    <script type="module" src="/assets/${indexJs}"></script>
   </body>
 </html>
 `;
