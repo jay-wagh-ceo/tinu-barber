@@ -1,0 +1,11 @@
+
+ALTER TABLE public.customers
+  ADD COLUMN IF NOT EXISTS wa_state TEXT NOT NULL DEFAULT 'idle',
+  ADD COLUMN IF NOT EXISTS wa_context JSONB NOT NULL DEFAULT '{}'::jsonb;
+
+CREATE UNIQUE INDEX IF NOT EXISTS customers_phone_key ON public.customers(phone);
+
+ALTER TABLE public.queue_entries
+  ADD COLUMN IF NOT EXISTS two_alert BOOLEAN NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS one_alert BOOLEAN NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS turn_alert BOOLEAN NOT NULL DEFAULT false;
